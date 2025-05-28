@@ -30,10 +30,10 @@ main(): Unit {
 
     // 多种数据类型
     echo.initialize()
-    for (part in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]) {
+    for (part in [[1, 2, 3, 4, 5],[6, 7, 8, 9, 10]]) {
         for (part2 in "hashlib4cj".toArray()) {
-            echo.transformInt64(part)
             echo.transformByte(part2)
+            echo.transformInt64s(part)
         }
     }
     let res3 = echo.transformFinal()
