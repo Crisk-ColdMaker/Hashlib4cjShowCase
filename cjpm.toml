@@ -1,0 +1,14 @@
+[dependencies]
+  hashlib4cj = { git = "https://gitcode.com/FriskKA/hashlib4cj", branch = "main" }
+[package]
+  cjc-version = "0.58.3"
+  compile-option = ""
+  description = "nothing here"
+  link-option = ""
+  name = "CJPAD"
+  output-type = "executable"
+  override-compile-option = ""
+  src-dir = ""
+  target-dir = ""
+  version = "1.0.0"
+  package-configuration = {}
