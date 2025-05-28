@@ -20,7 +20,9 @@ main(): Unit {
 
     println("-----------------------------增量哈希-----------------------------")
     echo.initialize()
-    for (part in "hashlib4cj".toArray()) {
+    let input = "hashlib4cj".toArray()
+    println("-> size : ${input.size}")
+    for (part in input) {
         echo.transformByte(part)
     }
     let res2 = echo.transformFinal()
@@ -41,7 +43,7 @@ main(): Unit {
     echo.initialize()
     let testResult = echo.computeBytes(fromHexString("3197").getOrThrow())
     if (testResult.toString() == "3678C17756C785582EF6691EE90CD64FAC942A0371D702A55BAF9B6DA2E14F87") {
-        println("Echo256 test passed")
+        println("-> Echo256 test passed")
     } else {
         println("Echo256 test failed: ${testResult}")
     }
@@ -53,10 +55,13 @@ main(): Unit {
     println("CRC32: ${CRC32IEEE().computeStringUTF8("hashlib4cj")}")
     //..
 
-    println("-----------------------------各类API-----------------------------")
+    println("-----------------------------部分API-----------------------------")
     let gost = Gost()
     println("-> Gost Any: ${gost.computeAny("hashlib4cj")}")
     println("-> Gost String: ${gost.computeStringUTF8("hashlib4cj")}")
+    gost.transformAny("hashlib4cj")
+    println("-> Gost transform String: ${gost.transformFinal()}")
+    
     try (file = File(Path("./src/testFile.txt"), Read)) {
         println("Gost File: ${gost.computeFileFromPath(file.info.path, 0, file.info.size)}")
     }
