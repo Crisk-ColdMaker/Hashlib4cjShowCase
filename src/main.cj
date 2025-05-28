@@ -4,7 +4,10 @@ import std.fs.*
 import encoding.hex.*
 import hashlib4cj.crypto.sha3.echo.*
 import hashlib4cj.crypto.snefru.*
+import hashlib4cj.crypto.sha3.blue_midnight_wish.*
+import hashlib4cj.crypto.sha3.hamsi.*
 import hashlib4cj.hash32.AP
+import hashlib4cj.hash64.SipHash
 import hashlib4cj.checksum.crc_32.*
 import hashlib4cj.crypto.Gost
 
@@ -49,10 +52,16 @@ main(): Unit {
     }
 
     println("-----------------------------共计88种哈希算法-----------------------------")
-    println("Echo384: ${Echo384().computeStringUTF8("hashlib4cj")}")
+    println("blue_midnight_wish224: ${BlueMidnightWish224().computeStringUTF8("hashlib4cj")}")
     println("Snefru256: ${SnefruRounds4Size256().computeStringUTF8("hashlib4cj")}")
+    println("Echo384: ${Echo384().computeStringUTF8("hashlib4cj")}")
+    println("Hamsi512: ${Hamsi512().computeStringUTF8("hashlib4cj")}")
+
     println("AP: ${AP().computeStringUTF8("hashlib4cj")}")
-    println("CRC32: ${CRC32IEEE().computeStringUTF8("hashlib4cj")}")
+    println("SipHash: ${SipHash().computeStringUTF8("hashlib4cj")}")
+    
+    println("CRC32IEEE: ${CRC32IEEE().computeStringUTF8("hashlib4cj")}")
+    println("CRC32KOOPMAN: ${CRC32KOOPMAN().computeStringUTF8("hashlib4cj")}")
     //..
 
     println("-----------------------------部分API-----------------------------")
